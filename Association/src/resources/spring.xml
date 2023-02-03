@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean class="com.xworkz.association.fw.beans.TrainBean">
+		<constructor-arg value="CST" type="String"></constructor-arg>
+		<property name="engine" ref="engineBean1"></property>
+	</bean>
+
+	<bean class="com.xworkz.association.fw.beans.EngineBean"
+		id="engineBean1">
+		<constructor-arg value="1990d" type="double"></constructor-arg>
+	</bean>
+
+	<bean class="com.xworkz.association.fw.beans.BottleBean">
+		<constructor-arg value="Melton" type="String"></constructor-arg>
+		<property name="cap" ref="capBean1"></property>
+	</bean>
+
+	<bean class="com.xworkz.association.fw.beans.CapBean"
+		id="capBean1">
+		<constructor-arg value="199d" type="double"></constructor-arg>
+	</bean>
+
+
+	<bean id="powerBean"
+		class="com.xworkz.association.fw.beans.PowerBean">
+
+		<constructor-arg value="DC" />
+
+	</bean>
+
+
+	<bean class="com.xworkz.association.fw.beans.SystemBean">
+
+		<constructor-arg value=" service system" />
+
+		<constructor-arg ref="powerBean" />
+
+	</bean>
+
+</beans>
